@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+}
+section {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Scroll Anchor */
+#sec-1 {
+    background: url(https://papers.co/wallpaper/papers.co-bb39-night-city-dark-minimal-illustration-art-35-3840x2160-4k-wallpaper.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#sec-2 {
+    background-color: #eeeeee;
+}
+.scroll-down {
+    height: 50px;
+    width: 50px;
+    border: 2px solid transparent;
+    position: absolute;
+    left: 50%;
+    bottom: 20px;
+    border-radius: 0px;
+    cursor: pointer;
+    transform: translateX(-25px);
+}
+
+.scroll-down::before,
+.scroll-down::after {
+    content: "";
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    height: 30px;
+    width: 30px;
+    transform: translate(-50%, -100%) rotate(45deg);
+    
+    border: 2px solid #eeeeee;
+    border-top: transparent;
+    border-left: transparent;
+
+    animation: scroll-down 1s ease-in-out infinite;
+}
+
+.scroll-down::before {
+    top: 30%;
+    animation-delay: 0.3s;
+    /* animation: scroll-down 1s ease-in-out infinite; */
+}
+
+@keyframes scroll-down {
+    0% {
+        /* top:20%; */
+        opacity: 0;
+    }
+    30% {
+        opacity: 1;
+    }
+    60% {
+        opacity: 1;
+    }
+    100% {
+        top: 90%;
+        opacity: 0;
+    }
+}
+
+/* Typewriter effect */
+.wrapper {
+    height: 100vh;
+    display: flex; /* Centering */
+    align-items: center;
+    justify-content: center;
+}
+
+.typing-demo {
+    width: 15ch;
+
+    animation: blink .5s step-end infinite alternate, typing 2s steps(15);
+
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid;
+    font-family: 'Source Code Pro', 'Inconsolata', monospace;
+    font-size: 5vw;
+    color: #eeeeee;
+    transition: font-size 0.5s;
+
+}
+
+/* Title of site */
+a.title {
+    text-decoration: none;
+}
+
+.typing-demo:hover {
+    font-size: 7vw;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
