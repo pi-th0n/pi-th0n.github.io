@@ -36,7 +36,7 @@ html {scroll-behavior: smooth;}
     min-height: 100vh;
     justify-content: center;
 
-    background-image: url('./images/titleWallpaper.jpeg');
+    background-image: url('https://ibb.co/JdwJNCw');
 
     /* Parallax Scrolling */
     background-attachment: fixed;
