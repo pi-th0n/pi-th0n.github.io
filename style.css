@@ -1,126 +1,174 @@
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+/* Sen */  @import url('https://fonts.googleapis.com/css2?family=Sen:wght@400;800&display=swap');
+/* Open Sans (bold) */  @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
+/* Mulish */ @import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
+/* Poppins */  @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+/* Montserrat */  @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+/* Montserrat 500 */ @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+/* Raleway */  @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 
 * {
-    padding: 0;
-    margin: 0;
     box-sizing: border-box;
-}
-html {
-    scroll-behavior: smooth;
-}
-section {
-    min-height: 100vh;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-/* Scroll Anchor */
-#sec-1 {
-    background: url(https://papers.co/wallpaper/papers.co-bb39-night-city-dark-minimal-illustration-art-35-3840x2160-4k-wallpaper.jpg);
+html {scroll-behavior: smooth;}
+
+.nav-li, .nav-a, #navbutton {
+    font-family: 'Montserrat', Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #edf0f1;
+    text-decoration: none;
+}
+
+/*** BEGIN TITLE ***/
+
+/* Main header CSS */
+#main-header {
+    display: flex;
+    font-family: 'Sen', 'Open Sans', Impact, sans-serif;
+    color: #111111;
+    text-align: center;
+    align-items: center;
+    min-height: 100vh;
+    justify-content: center;
+
+    background-image: url('./images/titleWallpaper.jpeg');
+
+    /* Parallax Scrolling */
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    margin-bottom: 0;
 }
-#sec-2 {
-    background-color: #eeeeee;
+
+/* Title and title on hover animation */
+#title {
+    font-size: 8vw;
+    transition: transform 1s;
 }
-.scroll-down {
+#title a {
+    text-decoration: none;
+    color: #111111;
+}
+#title:hover {
+    transform: scale(1.5);
+}
+
+/*** END OF TITLE ***/
+
+/* Changes everything except main-header area to default background-color */
+*:not(header#main-header, a#title-a, #title, .scroll) {
+    background-color: #24252a;
+}
+
+/*** BEGIN NAVBAR ***/
+
+header#navhead {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10%;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+}
+
+/* Logo for website */
+.logo {
+    cursor: pointer;
+}
+
+/* Different navlinks styles */
+.navlinks {
+    list-style: none;
+}
+
+.navlinks li {
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+.navlinks li a {
+    transition: all 0.3s ease 0s;
+}
+
+.navlinks li a:hover{
+    transition: all 0.3s ease 0s;
+    color: #00D6FF;
+}
+
+button#navbutton {
+    padding: 9px 25px;
+    background-color: rgba(0, 136, 169, 1);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+button#navbutton:hover {
+    background-color: rgba(0, 136, 169, 0.6);
+}
+
+/*** END OF NAVBAR ***/
+
+
+
+/*** BEGIN SCROLL ANCHOR ***/
+
+/* Scroll button hitbox */
+.scroll {
     height: 50px;
     width: 50px;
-    border: 2px solid transparent;
     position: absolute;
     left: 50%;
     bottom: 20px;
-    border-radius: 0px;
     cursor: pointer;
-    transform: translateX(-25px);
+    animation: scroll-animation 2.5s infinite;
 }
 
-.scroll-down::before,
-.scroll-down::after {
+/* Creates the downwards facing arrow */
+.scroll::before,
+.scroll::after {
     content: "";
     position: absolute;
-    top: 20%;
+    bottom: 0px;
     left: 50%;
     height: 30px;
     width: 30px;
     transform: translate(-50%, -100%) rotate(45deg);
-    
-    border: 2px solid #eeeeee;
-    border-top: transparent;
-    border-left: transparent;
-
-    animation: scroll-down 1s ease-in-out infinite;
+    border: 2px solid #f4f4f4;
+    border-top: rgba(0, 0, 0, 0);
+    border-left: rgba(0, 0, 0, 0);
 }
 
-.scroll-down::before {
-    top: 30%;
-    animation-delay: 0.3s;
-    /* animation: scroll-down 1s ease-in-out infinite; */
-}
-
-@keyframes scroll-down {
+/* Up and down animation */
+@keyframes scroll-animation {
     0% {
-        /* top:20%; */
-        opacity: 0;
+      transform: translateY(0, 0);
+    }
+    15% {
+      transform: translateY(12px);
     }
     30% {
-        opacity: 1;
-    }
-    60% {
-        opacity: 1;
-    }
-    100% {
-        top: 90%;
-        opacity: 0;
+      transform: translateY(0);
     }
 }
 
-/* Typewriter effect */
-.wrapper {
-    height: 100vh;
-    display: flex; /* Centering */
-    align-items: center;
-    justify-content: center;
-}
+/*** END OF SCROLL ANCHOR ***/
 
-.typing-demo {
-    width: 15ch;
 
-    animation: blink .5s step-end infinite alternate, typing 2s steps(15);
-
-    white-space: nowrap;
-    overflow: hidden;
-    border-right: 3px solid;
-    font-family: 'Source Code Pro', 'Inconsolata', monospace;
-    font-size: 5vw;
-    color: #eeeeee;
-    transition: font-size 0.5s;
-
-}
-
-/* Title of site */
-a.title {
-    text-decoration: none;
-}
-
-.typing-demo:hover {
-    font-size: 7vw;
-}
-
-@keyframes typing {
-    from {
-        width: 0;
-    }
-}
-
-@keyframes blink {
-    50% {
-        border-color: transparent;
-    }
+/* filler text (remove later) */
+#lorem {
+    line-height: 5;
+    font-family: 'Raleway', Arial, Helvetica, sans-serif;
+    padding: 50px;
+    border: 3px double rgba(0, 136, 169, 1);
+    margin: 10px;
+    color: #f2f2f2;
 }
